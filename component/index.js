@@ -22,6 +22,5 @@ import UserComponent from "./UserComponent";
 import RepairComponentOfStudent from "./RepairComponentOfStudent";
 import ViolationComponentOfStudent from "./ViolationComponentOfStudent";
 import ManagePermissionGrid from "./ManagePermissionGrid";
-import PriceGrid from "./PriceGrid";
 
-export {PriceGrid,ManagePermissionGrid,ViolationComponentOfStudent,RepairComponentOfStudent,UserComponent,HeaderComponent,RepairGrid,InfrastructureInRoomGrid,InfrastructureGrid,AreaElectricAndWater,ViolationComponent,RoomViolation,AreaViolation,HeaderRightFilter,Loading,UserGrid,InputText, StudentInRoom, Room, ElectricGrid, WaterGrid,DrawerItemComponent,ButtonFilter,Area,RegisterDorm };
+export {ManagePermissionGrid,ViolationComponentOfStudent,RepairComponentOfStudent,UserComponent,HeaderComponent,RepairGrid,InfrastructureInRoomGrid,InfrastructureGrid,AreaElectricAndWater,ViolationComponent,RoomViolation,AreaViolation,HeaderRightFilter,Loading,UserGrid,InputText, StudentInRoom, Room, ElectricGrid, WaterGrid,DrawerItemComponent,ButtonFilter,Area,RegisterDorm };

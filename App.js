@@ -1,28 +1,39 @@
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: Async Storage has been extracted from react-native core']);
 import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import MyNavigation from "./navigation";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { InputText } from "./component";
+import {
+  DrawerContent,
+} from "./Screen";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import SettingStackScreen from "./navigation/SettingStackScreen";
-import { DrawerScreen } from "./Screen";
-import TabStackScreen from "./navigation/TabStackScreen";
+import TabStackScreen from './navigation/TabNavigation'
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Provider } from "react-redux";
+import store from "./store";
+import FlashMessage from "react-native-flash-message";
 
+
+
+const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
-    <>
-      <StatusBar hidden={true} />
+    <Provider store={store}>
       <NavigationContainer>
         <Drawer.Navigator
-          initialRouteName="Home"
-          screenOptions={{ headerShown: false }}
-          drawerContent={(props)=><DrawerScreen {...props}/>}
-        >
-          <Drawer.Screen name="Navigation" component={TabStackScreen} />
-          <Drawer.Screen name="Setting" component={SettingStackScreen} />
-        </Drawer.Navigator>
+            screenOptions={{
+              headerShown : false
+            }}
+            drawerContent={props => <DrawerContent {...props} />}
+            >
+                <Drawer.Screen name="TabStackScreen" component={TabStackScreen} />
+            </Drawer.Navigator>
+            <FlashMessage position="top" />
+            <StatusBar style="auto" />
       </NavigationContainer>
-    </>
+    </Provider>
   );
 }
